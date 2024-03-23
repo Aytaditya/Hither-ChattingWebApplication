@@ -6,7 +6,7 @@ import { login, logout, signup } from "../endpoints/auth.controller.js";
 const router=express.Router();
 
 // all endpoints in endpoints folder
-
+//Its using from endpoints folder
 router.get("/login",login)
 
 router.get("/signup",signup)
