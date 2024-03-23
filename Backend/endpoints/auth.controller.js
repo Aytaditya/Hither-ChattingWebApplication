@@ -65,7 +65,7 @@ export const signup=async(req,res)=>{
 
    } 
    catch (error) {
-    console.log(error.message)
+    
     res.status(500).json({error:"Something went Wrong, Internal Server error"})
    }
 }
@@ -108,11 +108,20 @@ export const login= async(req,res)=>{
         });
     
     } catch (error) {
-        console.error(error);
+        
         res.status(500).json({ error: "Internal server error" });
     }
 }    
 
+
+                   // ROUTE-3
 export const logout=(req,res)=>{
-    res.send("This is logout page")
+    try {
+        //by assigning empty string we are clearing the value of jwt token 
+        //{ maxAge: 0 }: This is an options object specifying the maximum age of the cookie. Setting maxAge to 0 means that the cookie will immediately expire. This effectively deletes the cookie because as soon as it's set, it's considered expired.
+        res.cookie("jwt","",{maxAge:0});
+        res.status(200).json({message:"Logged out successfully"})
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
+    }
 }
