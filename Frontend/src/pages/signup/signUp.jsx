@@ -23,7 +23,7 @@ const SignUp = () => {
                         </div>
                         <div>
                             <label className='label p-2'>
-                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-lock-open"></i> Choose a Passord</span>
+                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-lock-open"></i> Choose a Password</span>
                             </label>
                             <input type="text" className="w-full input input-bordered h-10" placeholder='Enter a Password' />
                         </div>
