@@ -1,5 +1,5 @@
 import express from "express";
-import { sendMessage } from "../endpoints/message.controller.js";
+import { getMessages, sendMessage } from "../endpoints/message.controller.js";
 import protectRoute from "../middleware/protectRoute.js";
 
 
@@ -7,6 +7,7 @@ import protectRoute from "../middleware/protectRoute.js";
 
 const router=express.Router();
 
+router.get("/:id",protectRoute,getMessages)
 
 //The purpose of this protectRoute middleware is likely to perform authorization check before allowing access to the sendMessage handler.
 router.post("/send/:id",protectRoute,sendMessage)

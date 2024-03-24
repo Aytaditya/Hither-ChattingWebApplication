@@ -47,6 +47,10 @@ export const sendMessage=async(req,res)=>{
         //conversation model chema store partcipant id , sender id and messages section store message id
     }
 
+                     // SOCKET IO FUNCTIONALITY WILL BE ADDED HERE
+
+
+
     // await conversation.save()
     // await newMessage.save()
                               //instead of doing this we can run them in parallel
@@ -56,5 +60,29 @@ export const sendMessage=async(req,res)=>{
         
     } catch (error) {
         res.status(500).json({error:"Some Error Occured, Internal Server Error"})
+    }
+}
+                                
+                           //route 2
+export const getMessages=async(req,res)=>{
+    try {
+        
+        const {id:userToChatId}=req.params;
+        const senderId=req.user._id
+
+        const conservation= await Conversation.findOne({
+            participants:{$all:[senderId,userToChatId]}
+        }).populate("messages")   //This means that instead of just getting the message IDs stored in the messages field, it fetches the actual message documents associated with those IDs.
+
+        if(!conservation){
+            res.status(200).json([])
+        }
+
+        res.status(200).json(conservation.messages)
+
+
+
+    } catch (error) {
+        res.status(500).json({error:"Internal Server Error"})
     }
 }
