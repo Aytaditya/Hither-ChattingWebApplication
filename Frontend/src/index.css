@@ -10,3 +10,19 @@ body{
     background-position: center;
   
 }
+
+::-webkit-scrollbar{
+    cursor:pointer;
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    cursor:pointer;
+    background: #555;
+}
+::-webkit-scrollbar-thumb{
+    background:#242424;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background:#64748B;
+}
