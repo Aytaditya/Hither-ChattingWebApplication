@@ -1,6 +1,6 @@
 
 
-// this is for sidebar 
+// this is for sidebar users  
 
 import User from "../model/user.model.js";
 
