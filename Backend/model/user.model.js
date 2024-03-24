@@ -27,7 +27,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         default:""
     }
-})
+},{timestamps:true});
 
 const User=mongoose.model("User",userSchema);    //name of collection in which date will be stored is user 
 // and userSchema is name of my schema

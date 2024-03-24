@@ -2,7 +2,9 @@
 import express from "express";
 import dotenv from "dotenv"
 import authRoutes from "./routes/auth.routes.js"
+import messageRoutes from "./routes/message.routes.js"
 import connectToDb from "./db/connectToDb.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -22,10 +24,15 @@ const PORT = process.env.PORT;
 //app.use(express.json()) essentially tells your Express application to use a middleware function called json() provided by the express package. This middleware specifically focuses on handling JSON-formatted data in incoming requests.
 
 //                MOST IMP THIS LINE SHOULD BE BEFORE WRITING ROUTES OTHERWISE MIDDLEWARE WILL NOT WORK AND WE WONT BE ABLE TO ACCESS VALUES COMING FROM req.body
+
+                              //all middlewares here
 app.use(express.json())
+app.use(cookieParser());  // to parse the incoming cookie
+
 
 //It is using routes file
 app.use("/api/auth",authRoutes)
+app.use("/api/messages",messageRoutes)
 
 
 app.listen(PORT, () => {
