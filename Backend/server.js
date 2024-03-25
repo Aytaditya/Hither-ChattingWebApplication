@@ -2,6 +2,7 @@
 import express from "express";
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"; 
+import cors from "cors"
 
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js"
@@ -32,6 +33,7 @@ const PORT = process.env.PORT;
                               //all middlewares here
 app.use(express.json())
 app.use(cookieParser());  // to parse the incoming cookie
+app.use(cors()) //permission for foregin connection
 
 
 //It is using routes file
