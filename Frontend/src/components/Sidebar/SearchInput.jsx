@@ -5,7 +5,7 @@ const SearchInput = () => {
     <>
     <form className='flex items-center gap-2'>
         <input type="text" placeholder='Search....' className="input input-boarded rounded-full" />
-        <button type='submit' className="btn btn-circle bg-sky-500 text-white"><i class="fa-solid fa-magnifying-glass "></i></button>
+        <button type='submit' className="btn btn-circle bg-sky-500 text-white"><i className="fa-solid fa-magnifying-glass "></i></button>
     </form>
       
     </>

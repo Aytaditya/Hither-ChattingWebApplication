@@ -35,25 +35,25 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label className='label p-2'>
-                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-user"></i> Enter Your Name</span>
+                                <span className="text-base label-text text-gray-300"><i className="fa-solid fa-user"></i> Enter Your Name</span>
                             </label>
                             <input type="text" className="w-full input input-bordered h-10" placeholder='Enter Your Full Name' value={inputs.fullName} onChange={(e)=>setInputs({...inputs,fullName:e.target.value})} />
                         </div>
                         <div>
                             <label className='label p-2'>
-                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-address-card"></i> Enter Username</span>
+                                <span className="text-base label-text text-gray-300"><i className="fa-solid fa-address-card"></i> Enter Username</span>
                             </label>
                             <input type="text" className="w-full input input-bordered h-10" placeholder='Enter Your Username' value={inputs.username} onChange={(e)=>setInputs({...inputs,username:e.target.value})} />
                         </div>
                         <div>
                             <label className='label p-2'>
-                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-lock-open"></i> Choose a Password</span>
+                                <span className="text-base label-text text-gray-300"><i className="fa-solid fa-lock-open"></i> Choose a Password</span>
                             </label>
                             <input type="text" className="w-full input input-bordered h-10" placeholder='Enter a Password' value={inputs.password} onChange={(e)=>setInputs({...inputs,password:e.target.value})} />
                         </div>
                         <div>
                             <label className='label p-2'>
-                                <span className="text-base label-text text-gray-300"><i class="fa-solid fa-key"></i> Confirm Your Password</span>
+                                <span className="text-base label-text text-gray-300"><i className="fa-solid fa-key"></i> Confirm Your Password</span>
                             </label>
                             <input type="text" className="w-full input input-bordered h-10" placeholder='Enter Password Again' value={inputs.confirmPassword} onChange={(e)=>setInputs({...inputs,confirmPassword:e.target.value})} />
                         </div>
@@ -61,7 +61,9 @@ const SignUp = () => {
                     <Link to="/login" className="text-sm hover:underline hover:text-blue-300 mt-2 inline-block ">Already have an account?</Link>
 
                     <div>
-                        <button className=" mt-5 btn btn-block btn-sm ">Create my Account</button>
+                        <button className=" mt-5 btn btn-block btn-sm " disabled={loading}>
+                            {loading ? <span className="loading loading-sp"></span> : "Create My Account"}
+                        </button>
                     </div>
 
                     </form>

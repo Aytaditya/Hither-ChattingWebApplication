@@ -23,7 +23,7 @@ const noChatSelected=()=>{
             <div className="px-4 text center sm:text-lg md:text-xl text-gray-300 font-semibold flex flex-col items-center gap-2">
                     <p>Welcome Aditya Aryan 😉,</p>
                     <p>Select a chat to start messaging</p>
-                    <i class="fa-solid fa-message"></i>
+                    <i className="fa-solid fa-message"></i>
             </div>
         </div>
     )

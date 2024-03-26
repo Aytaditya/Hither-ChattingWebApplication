@@ -29,7 +29,7 @@ const NoChatSelected = () => {
             <div className="px-4 text-center sm:text-lg md:text-xl text-gray-300 font-semibold flex flex-col items-center gap-2 font-mono">
                 <p>Welcome to Hither 😉, Aditya Aryan</p>
                 <p>Happy chatting! 🚀</p>
-                <i class="fa-regular fa-message fa-3x"></i>
+                <i className="fa-regular fa-message fa-3x"></i>
             </div>
         </div>
     );

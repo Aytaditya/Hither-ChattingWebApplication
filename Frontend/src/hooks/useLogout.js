@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const useLogout = () => {
     const [loading, setLoading] = useState();
     const {setAuthUser}=useAuthContext()
+    var showToast=false;
 
     const logout = async () => {
         setLoading(true);
@@ -22,9 +23,15 @@ const useLogout = () => {
                 throw new Error(data.error)
             }
 
+            showToast=true;
+
             localStorage.removeItem("chatUser")  //now after doing this we need to update our context API currenlty authUser has value 
 
             setAuthUser(null)
+
+            if(showToast){
+                toast.success("User Logged Out Successfully")
+            }
 
         } catch (error) {
                 toast.error(error.message)

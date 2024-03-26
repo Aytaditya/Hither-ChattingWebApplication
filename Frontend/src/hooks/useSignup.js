@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect  } from "react"
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
@@ -6,6 +6,7 @@ import { useAuthContext } from "../context/AuthContext";
 const useSignup =()=>{
     const [loading,setLoading]=useState(false);
     const {setAuthUser}=useAuthContext()
+    var showToast=false;
 
     const signup=async({fullName,username,password,confirmPassword,gender})=>{
       const success=  handleInputErrors({fullName,username,password,confirmPassword,gender})
@@ -25,12 +26,17 @@ const useSignup =()=>{
        if(data.error){
         throw new Error(data.error)
        }
-
+        showToast=true;
        //updating local storage when signed up
        localStorage.setItem("chatUser",JSON.stringify(data))
 
         //now we will update our context API
         setAuthUser(data)
+
+        //sending a account created toast
+       if (showToast){
+        toast.success('Account Created Successfully');
+       }
 
 
 
