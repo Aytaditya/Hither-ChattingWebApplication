@@ -25,7 +25,7 @@ const protectRoute= async(req,res,next)=>{
 
         //It is called userId because called userId in generateToken.js
         //selecting without password
-        const user = await User.findById(decoded.userId).select("--password");
+        const user = await User.findById(decoded.userId).select("-password");
 
         if(!user){
            return res.status(404).json({error:"User not Found"})
