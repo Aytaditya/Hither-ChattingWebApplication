@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react'
 
-const Conversation = () => {
+const Conversation = ({conversation,lastIdx, emoji}) => {
     return (
         <>
         <div className="flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer ">
@@ -11,8 +13,8 @@ const Conversation = () => {
             </div>
             <div className="flex flex-col flex-1">
                 <div className="flex gap-3 justify-between">
-                    <p className='font-bold text-gray-200 font-mono'>Aditya Aryan</p>
-                    <span className='text-xl'>😈</span>
+                    <p className='font-bold text-gray-200 font-mono'>{conversation.fullName}</p>
+                    <span className='text-xl'>{emoji}</span>
                 </div>
             </div>
         </div>

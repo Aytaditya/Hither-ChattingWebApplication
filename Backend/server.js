@@ -33,7 +33,14 @@ const PORT = process.env.PORT;
                               //all middlewares here
 app.use(express.json())
 app.use(cookieParser());  // to parse the incoming cookie
-app.use(cors()) //permission for foregin connection
+const corsOptions = {
+    methods: ['GET', 'POST', 'PUT', 'DELETE'] ,
+    origin: 'http://localhost:3000', 
+    credentials: true,
+    exposedHeaders: ["set-cookie"],
+};
+
+app.use(cors(corsOptions));//permission for foregin connection
 
 
 //It is using routes file

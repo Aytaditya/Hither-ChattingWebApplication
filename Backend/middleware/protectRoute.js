@@ -10,7 +10,7 @@ const protectRoute= async(req,res,next)=>{
 
         const token = req.cookies.jwt;
         if(!token){
-            return res.status(401).json({error:"Unauthorized No token Available"})
+            return res.status(400).json({error:"Unauthorized No token Available"})
         }
 
         //Once decoded, the resulting decoded object likely contains information such as user IDs, permissions, or other data embedded within the JWT payload.

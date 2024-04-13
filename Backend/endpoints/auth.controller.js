@@ -49,10 +49,10 @@ export const signup=async(req,res)=>{
       if(newUser){
          
         //now we will generate jwt token here and then send this as response
-     generateTokenAndSetCookie(newUser._id,res)
+     const access_token=generateTokenAndSetCookie(newUser._id,res)
 
           //response we will get
-     res.status(201).json({
+     res.status(200).cookie("access_token",access_token).json({
         _id:newUser.id,
         fullName:newUser.fullName,
         username:newUser.username,
@@ -95,11 +95,13 @@ export const login= async(req,res)=>{
             return res.status(400).json({ error: "Invalid Username or Password" });
         }
         
-    
         // Generating token and setting cookie
-        generateTokenAndSetCookie(user._id, res);
+        const access_token = generateTokenAndSetCookie(user._id, res);
+        console.log(access_token);
+        console.log("User logged in successfully");
     
         // Sending success response
+        res.cookie("access_token", access_token, { httpOnly: true, sameSite: "lax"});
         res.status(200).json({
             _id: user.id,
             fullName: user.fullName,
@@ -108,7 +110,7 @@ export const login= async(req,res)=>{
         });
     
     } catch (error) {
-        
+        console.log(error)
         res.status(500).json({ error: "Internal server error" });
     }
 }    
